@@ -3,6 +3,47 @@ import { useState, useEffect, useMemo } from "react";
 import "./App.css";
 
 function App() {
+  // const imageToTry = useMemo(
+  //   () => backupTvData[4]?.backdrop_path,
+  //   [backupTvData],
+  // );
+
+  // const movieImage = useMemo(() => movieData[4]?.backdrop_path, [movieData]);
+  // useEffect(() => {
+  //   console.log("imageToTryBitches", imageToTry);
+  // }, [imageToTry]);
+
+  // const tvObjectZero = useMemo(() => tvData[0], [tvData]);
+  // const tvObjectOne = useMemo(() => tvData[1], [tvData]);
+  // const tvObjectTwo = useMemo(() => tvData[2], [tvData]);
+  // const tvObjectThree = useMemo(() => tvData[3], [tvData]);
+  // const tvObjectFour = useMemo(() => tvData[4], [tvData]);
+
+  // const movieObjectZero = useMemo(() => movieData[0], [movieData]);
+  // const movieDataOne = useMemo(() => movieData[1], [movieData]);
+  // const movieDataTwo = useMemo(() => movieData[1], [movieData]);
+  // const movieDataThree = useMemo(() => movieData[1], [movieData]);
+  // const movieDataFour = useMemo(() => movieData[1], [movieData]);
+
+  // const filteredEven = useMemo(() => {
+  //   const EvenMixedArray = mixedArray.slice();
+  //   return EvenMixedArray.filter((_, index) => index % 2 == 0);
+  // }, [mixedArray]);
+
+  // const filteredOdd = useMemo(() => {
+  //   const oddMixedArray = mixedArray.slice();
+  //   return oddMixedArray.filter((_, index) => index % 2 != 0);
+  // }, [mixedArray]);
+
+  // useEffect(() => {
+  //   console.log(backupMovieData, "backupMovieData");
+  //   console.log(slicedMovie, "slicedMovie");
+  //   console.log(slicedTv, "slicedTv");
+
+  //   console.log(backupMovieData[8]?.title || "unKnown", "backupMovieData");
+  //   console.log(backupMovieData[8]?.poster_path || "unknown", "poster_path");
+  // }, [backupTvData, backupMovieData, mixedArray]);
+
   const [movieData, setmovieData] = useState([]);
   const [tvData, setTvData] = useState([]);
   const [backupMovieData, setBackupMovieData] = useState([]);
@@ -41,51 +82,10 @@ function App() {
   const slicedTv = useMemo(() => backupTvData.slice(0, 5), [backupTvData]);
 
   useEffect(() => {
-    console.log(backupMovieData, "backupMovieData");
-    console.log(slicedMovie, "slicedMovie");
-    console.log(slicedTv, "slicedTv");
-
-    console.log(backupMovieData[8]?.title || "unKnown", "backupMovieData");
-    console.log(backupMovieData[8]?.poster_path || "unknown", "poster_path");
-  }, [backupTvData, backupMovieData, mixedArray]);
-
-  useEffect(() => {
     setMixedArray([...slicedMovie, ...slicedTv]);
   }, [slicedMovie, slicedTv]);
   useEffect(() => {
     console.log("mixedArray", mixedArray);
-  }, [mixedArray]);
-
-  const imageToTry = useMemo(
-    () => backupTvData[4]?.backdrop_path,
-    [backupTvData],
-  );
-
-  const movieImage = useMemo(() => movieData[4]?.backdrop_path, [movieData]);
-  useEffect(() => {
-    console.log("imageToTryBitches", imageToTry);
-  }, [imageToTry]);
-
-  const tvObjectZero = useMemo(() => tvData[0], [tvData]);
-  const tvObjectOne = useMemo(() => tvData[1], [tvData]);
-  const tvObjectTwo = useMemo(() => tvData[2], [tvData]);
-  const tvObjectThree = useMemo(() => tvData[3], [tvData]);
-  const tvObjectFour = useMemo(() => tvData[4], [tvData]);
-
-  const movieObjectZero = useMemo(() => movieData[0], [movieData]);
-  const movieDataOne = useMemo(() => movieData[1], [movieData]);
-  const movieDataTwo = useMemo(() => movieData[1], [movieData]);
-  const movieDataThree = useMemo(() => movieData[1], [movieData]);
-  const movieDataFour = useMemo(() => movieData[1], [movieData]);
-
-  const filteredEven = useMemo(() => {
-    const EvenMixedArray = mixedArray.slice();
-    return EvenMixedArray.filter((_, index) => index % 2 == 0);
-  }, [mixedArray]);
-
-  const filteredOdd = useMemo(() => {
-    const oddMixedArray = mixedArray.slice();
-    return oddMixedArray.filter((_, index) => index % 2 != 0);
   }, [mixedArray]);
 
   const flatMapMixedArray = useMemo(() => {
@@ -96,41 +96,19 @@ function App() {
   }, [mixedArray]);
 
   useEffect(() => {
-    setMixedMovieAndTv([...flatMapMixedArray]);
+    if (flatMapMixedArray.length == 10) {
+      setMixedMovieAndTv([...flatMapMixedArray]);
+    }
   }, [flatMapMixedArray]);
 
   useEffect(() => {
-    console.log(filteredEven, "filteredEven");
-    console.log(filteredOdd, "filteredOdd");
-    console.log(flatMapMixedArray, "slicedInTwo");
-  }, [filteredEven, filteredOdd, flatMapMixedArray]);
+    console.log("flatMapMixedArray", flatMapMixedArray);
+  }, [flatMapMixedArray]);
 
   useEffect(() => {
     console.log(mixedMovieAndTv, "mixedMovieAndTv");
   }, [mixedMovieAndTv]);
-  // useEffect(() => {
-  //   console.log("tvObjectZero", tvObjectZero);
-  //   console.log("movieObjectZero", movieObjectZero);
-  //   setNewMixedArray([{ tvObjectZero }, { movieObjectZero }]);
-  // }, [tvObjectZero, movieObjectZero]);
-  useEffect(() => {
-    console.log("newMixedArray", newMixedArray);
-    console.log("newMixedArray[1]", newMixedArray[1]);
-  }, [, newMixedArray]);
 
-  const [RowOneMixedArray, setRowOneMixedArray] = useState([]);
-  const [RowTwoMixedArray, setRowTwoMixedArray] = useState([]);
-
-  useEffect(() => {
-    setRowOneMixedArray(mixedArray.slice(0, 5));
-    setRowTwoMixedArray(mixedArray.slice(-5));
-  }, [mixedArray]);
-
-
-  useEffect(()=> {
-console.log(RowOneMixedArray,"RowOneMixedArray")
-console.log(RowTwoMixedArray, "RowTwoMixedArray")
-  }, [RowOneMixedArray, RowTwoMixedArray])
   return (
     <>
       <br />
@@ -147,8 +125,8 @@ console.log(RowTwoMixedArray, "RowTwoMixedArray")
         </div>
 
         <section className="media-row-one">
-          {mixedMovieAndTv.map((show) => {
-            let mediaType = show.media_type;
+          {mixedMovieAndTv.slice(0, 5).map((show) => {
+            const mediaType = show.media_type;
             return mediaType == "movie" ? (
               <section key={show.id} className="home-media-movie-container">
                 <div className="home-media-movie-screen">
@@ -195,6 +173,25 @@ console.log(RowTwoMixedArray, "RowTwoMixedArray")
               </section>
             );
           })}
+          {/* {mixedMovieAndTv.slice(0, 5).map((show) => {
+            return (
+              <section key={show.id} className="home-media-movie-container">
+                <div className="home-media-movie-screen">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${show.backdrop_path}`}
+                    alt="a poster"
+                  />
+                </div>
+
+                <div className="home-media-movie-title">
+                  <div className="title">
+                    <p className="ticker-text">Movie: {show.title}</p>
+                  </div>
+                </div>
+                <p>{show.media_type}</p>
+              </section>
+            );
+          })} */}
           {/* <section className="home-media-tv-container">
             <div className="home-media-tv">
               <div className="home-media-tv-screen">
@@ -314,7 +311,7 @@ console.log(RowTwoMixedArray, "RowTwoMixedArray")
         {/* ------------------------------------------------------------- */}
 
         <div className="media-row-two">
-          {mixedMovieAndTv.map((show) => {
+          {mixedMovieAndTv.slice(-5).map((show) => {
             const mediaType = show.media_type;
             return mediaType == "movie" ? (
               <section key={show.id} className="home-media-movie-container">
