@@ -122,14 +122,15 @@ function App() {
   const [RowTwoMixedArray, setRowTwoMixedArray] = useState([]);
 
   useEffect(() => {
-    setRowOneMixedArray(mixedMovieAndTv.slice(0, 5));
-    setRowTwoMixedArray(mixedMovieAndTv.slice(-5));
-  }, [mixedMovieAndTv]);
+    setRowOneMixedArray(mixedArray.slice(0, 5));
+    setRowTwoMixedArray(mixedArray.slice(-5));
+  }, [mixedArray]);
 
-  useEffect(() => {
-    console.log(RowOneMixedArray, "RowOneMixedArray");
-    console.log(RowTwoMixedArray, "RowTwoMixedArray");
-  }, [RowOneMixedArray, RowTwoMixedArray]);
+
+  useEffect(()=> {
+console.log(RowOneMixedArray,"RowOneMixedArray")
+console.log(RowTwoMixedArray, "RowTwoMixedArray")
+  }, [RowOneMixedArray, RowTwoMixedArray])
   return (
     <>
       <br />
@@ -146,8 +147,9 @@ function App() {
         </div>
 
         <section className="media-row-one">
-          {RowOneMixedArray.map((show) => {
-            return show.media_type == "movie" ? (
+          {mixedMovieAndTv.map((show) => {
+            let mediaType = show.media_type;
+            return mediaType == "movie" ? (
               <section key={show.id} className="home-media-movie-container">
                 <div className="home-media-movie-screen">
                   <img
@@ -312,8 +314,9 @@ function App() {
         {/* ------------------------------------------------------------- */}
 
         <div className="media-row-two">
-          {RowTwoMixedArray.map((show) => {
-            return show.media_type == "movie" ? (
+          {mixedMovieAndTv.map((show) => {
+            const mediaType = show.media_type;
+            return mediaType == "movie" ? (
               <section key={show.id} className="home-media-movie-container">
                 <div className="home-media-movie-screen">
                   <img
