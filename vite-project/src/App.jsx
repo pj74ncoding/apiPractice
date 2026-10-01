@@ -53,21 +53,33 @@ function App() {
   const [mixedMovieAndTv, setMixedMovieAndTv] = useState([]);
 
   const testsMovieFetch = async () => {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
-    );
-    const result = await response.json();
-    setmovieData(result.results);
-    setBackupMovieData(result.results);
+    try {
+      const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+      const response = await fetch(
+        `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`,
+      );
+      // const response = await fetch(
+      //   "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      // );
+      const result = await response.json();
+      setmovieData(result.results);
+      setBackupMovieData(result.results);
+    } catch (error) {
+      console.warn("The testsMovieFetch error is: ", error);
+    }
   };
 
   const testsTvFetch = async () => {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/trending/tv/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
-    );
-    const result = await response.json();
-    setTvData(result.results);
-    setBackupTvData(result.results);
+    try {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/trending/tv/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      );
+      const result = await response.json();
+      setTvData(result.results);
+      setBackupTvData(result.results);
+    } catch (error) {
+      console.warn("The testsTvFetch error is: ", error);
+    }
   };
 
   useEffect(() => {
