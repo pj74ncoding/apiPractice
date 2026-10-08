@@ -35,6 +35,8 @@ function App() {
   //   return oddMixedArray.filter((_, index) => index % 2 != 0);
   // }, [mixedArray]);
 
+
+
   // useEffect(() => {
   //   console.log(backupMovieData, "backupMovieData");
   //   console.log(slicedMovie, "slicedMovie");
@@ -54,13 +56,13 @@ function App() {
 
   const testsMovieFetch = async () => {
     try {
-      const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-      const response = await fetch(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`,
-      );
+      // const apiKey = import.meta.env.VITE_TMDB_API_KEY;
       // const response = await fetch(
-      //   "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      //   `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`,
       // );
+      const response = await fetch(
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      );
       const result = await response.json();
       setmovieData(result.results);
       setBackupMovieData(result.results);
@@ -102,6 +104,7 @@ function App() {
 
   const flatMapMixedArray = useMemo(() => {
     const tests = mixedArray.slice();
+    console.log(tests, "tests")
     return tests
       .slice(0, tests.length / 2)
       .flatMap((x, i) => [x, tests[i + tests.length / 2]]);
