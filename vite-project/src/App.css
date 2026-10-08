@@ -112,7 +112,7 @@ body {
   height: 10%;
   color: white;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 1rem;
   background: linear-gradient(45deg, darkorange, 50%, yellow);
   display: flex;
   justify-content: center;
