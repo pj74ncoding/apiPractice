@@ -112,7 +112,7 @@ body {
   height: 15%;
   color: white;
   font-style: italic;
-  font-size: 16px;
+  /* font-size: 16px; */
   background: linear-gradient(45deg, darkorange, 50%, yellow);
   display: flex;
   justify-content: center;
@@ -123,6 +123,9 @@ body {
   /* box-shadow: 4px 4px 6px white; */
 }
 
+.ticker-text {
+  font-size: 10px;
+}
 /* tv to use--------------------------------- */
 
 .home-media-tv-container {
