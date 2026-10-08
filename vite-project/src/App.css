@@ -123,19 +123,16 @@ body {
   /* box-shadow: 4px 4px 6px white; */
 }
 
-.ticker-text {
-  font-size: 16px;
-}
 /* tv to use--------------------------------- */
 
 .home-media-tv-container {
   width: 200px;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
 }
 .home-media-tv {
-  height: 85%;
+  height: 80%;
   width: 100%;
   background-color: #f5a627;
   display: flex;
@@ -227,6 +224,7 @@ body {
   display: inline-block;
   padding-left: 100%; /* Start off-screen */
   animation: ticker 12s linear infinite;
+  font-size: 16px;
 }
 
 /* Keyframes for scrolling */
