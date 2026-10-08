@@ -128,7 +128,6 @@ body {
 .home-media-tv-container {
   width: 200px;
   height: 150px;
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
 }
