@@ -56,6 +56,8 @@ function App() {
   const [newMixedArray, setNewMixedArray] = useState([]);
   const [mixedMovieAndTv, setMixedMovieAndTv] = useState([]);
 
+      const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+      console.log("fffffffffffffffffff",import.meta.env.VITE_TMDB_API_KEY)
   const testsMovieFetch = async () => {
     try {
       // const apiKey = import.meta.env.VITE_TMDB_API_KEY;
