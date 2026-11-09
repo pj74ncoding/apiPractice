@@ -60,13 +60,15 @@ function App() {
       console.log("fffffffffffffffffff",import.meta.env.VITE_TMDB_API_KEY)
   const testsMovieFetch = async () => {
     try {
-      const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-      const response = await fetch(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`,
-      );
+      //** the key only works when used through the vercel server site */
+      // const apiKey = import.meta.env.VITE_TMDB_API_KEY;
       // const response = await fetch(
-      //   "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      //   `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`,
       // );
+      //** the below way works on normal browser */
+      const response = await fetch(
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=5a1dbe02eaed7aed89976013dcbc8aef",
+      );
       const result = await response.json();
       setmovieData(result.results);
       setBackupMovieData(result.results);
@@ -109,9 +111,7 @@ function App() {
   const flatMapMixedArray = useMemo(() => {
     const tests = mixedArray.slice();
     console.log(tests, "tests")
-    return tests
-      .slice(0, tests.length / 2)
-      .flatMap((x, i) => [x, tests[i + tests.length / 2]]);
+ 7
   }, [mixedArray]);
 
   useEffect(() => {
