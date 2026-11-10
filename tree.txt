@@ -3,3 +3,4 @@ test branching2
 test branching3
 test branching4
 test branching5
+test branching6
